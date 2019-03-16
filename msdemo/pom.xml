@@ -11,6 +11,8 @@
   	<module>../checkin</module>
   	<module>../fares</module>
   	<module>../search</module>
+
   	
+  	<module>../portal</module>
   </modules>
 </project>
