@@ -11,12 +11,12 @@
        <ul>
           <li> Airline </li>
           <li><a th:href="@{/search}">Search</a></li>
-           <li><a th:href="@{/search-booking}">CheckIn</a></li>
+           <li><a th:href="@{/search-book}">CheckIn</a></li>
         </ul>
     </nav> 
   <div align="center" class="form-style-8">
 	<h2>Booking Search</h2>
-    <form action="#" th:action="@{/search-booking-get}" th:object="${uidata}" method="post">
+    <form action="#" th:action="@{/search-book-get}" th:object="${uidata}" method="post">
     	<table>
     	  <tr> <td>Booking Reference</td><td> <input type="text" th:field="*{bookingid}" /> </td></tr>	     
 	      <tr> <td></td><td><input type="submit" value="Search" /> </td></tr>	

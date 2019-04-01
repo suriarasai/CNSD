@@ -70,7 +70,7 @@ public class PortalController {
 		long bookingId =0;
 		try { 
 			//long bookingId = bookingClient.postForObject("http://book-service/booking/create", booking, long.class); 
-			 bookingId = bookingClient.postForObject("http://localhost:8080/booking/create", booking, long.class); 
+			 bookingId = bookingClient.postForObject("http://localhost:8080/book/create", booking, long.class); 
 			logger.info("Booking created "+ bookingId);
 		}catch (Exception e){
 			logger.error("BOOKING SERVICE NOT AVAILABLE...!!!");
@@ -89,7 +89,7 @@ public class PortalController {
 	@RequestMapping(value="/search-booking-get", method=RequestMethod.POST)
 	public String searchBookingSubmit(@ModelAttribute UIData uiData, Model model) {
 		Long id = new Long(uiData.getBookingid());
- 		BookingRecord booking = bookingClient.getForObject("http://localhost:8080/booking/get/"+id, BookingRecord.class);
+ 		BookingRecord booking = bookingClient.getForObject("http://localhost:8080/book/get/"+id, BookingRecord.class);
 		Flight flight = new Flight(booking.getFlightNumber(), booking.getOrigin(),booking.getDestination()
 				,booking.getFlightDate(),new Fares(booking.getFare(),"AED"));
 		Passenger pax = booking.getPassengers().iterator().next();
