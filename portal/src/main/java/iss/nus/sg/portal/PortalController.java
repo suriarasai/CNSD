@@ -78,7 +78,7 @@ public class PortalController {
 		model.addAttribute("message", "Your Booking is confirmed. Reference Number is "+ bookingId);
 		return "confirm";
    }
-   @RequestMapping(value="/search-booking", method=RequestMethod.GET)
+   @RequestMapping(value="/search-book", method=RequestMethod.GET)
    public String searchBookingForm(Model model) {
    		UIData uiData = new UIData();
    		uiData.setBookingid("5");
@@ -86,7 +86,7 @@ public class PortalController {
    		return "bookingsearch";
    }   
 
-	@RequestMapping(value="/search-booking-get", method=RequestMethod.POST)
+	@RequestMapping(value="/search-book-get", method=RequestMethod.POST)
 	public String searchBookingSubmit(@ModelAttribute UIData uiData, Model model) {
 		Long id = new Long(uiData.getBookingid());
  		BookingRecord booking = bookingClient.getForObject("http://localhost:8080/book/get/"+id, BookingRecord.class);
